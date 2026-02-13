@@ -19,7 +19,7 @@ echo ADDRESS is $ADDRESS && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
 echo GATEWAY is $GATEWAY && \
 sleep 5 && \
-dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M && \
+dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M conv=fsync status=progress && \
 echo "Ok, reboot. Login admin / github.com" && \
 echo 1 > /proc/sys/kernel/sysrq && \
 echo b > /proc/sysrq-trigger && \
