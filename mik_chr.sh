@@ -19,8 +19,12 @@ echo ADDRESS is $ADDRESS && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
 echo GATEWAY is $GATEWAY && \
 sleep 5 && \
+echo u > /proc/sysrq-trigger && \
 dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M conv=fsync status=progress && \
+echo "sync disk" && \
+echo s > /proc/sysrq-trigger && \
+echo "Sleep 5 seconds" && \
+sleep 5 && \
 #dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M status=progress && \
 echo "Ok, reboot. Login admin / github.com" && \
-echo 1 > /proc/sys/kernel/sysrq && \
 echo b > /proc/sysrq-trigger
