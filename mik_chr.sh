@@ -22,4 +22,4 @@ sleep 5 && \
 dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M conv=fsync status=progress && \
 echo "Ok, reboot. Login admin / github.com" && \
 echo 1 > /proc/sys/kernel/sysrq && \
-echo b > /proc/sysrq-trigger && \
+echo b > /proc/sysrq-trigger
