@@ -44,7 +44,7 @@ For MikroTik 7.13.2
   bash -c "$(curl -L https://raw.githubusercontent.com/artemws/Install-MikroTik-CHR-on-VPS/refs/heads/main/mik78.sh)"
 ```
 
-For MikroTik 7.16.x with enabled Container support
+For MikroTik 7.13.1 with enabled Container support
 
 ```bash
   bash -c "$(curl -L https://raw.githubusercontent.com/artemws/Install-MikroTik-CHR-on-VPS/refs/heads/main/mik_chr.sh)"
