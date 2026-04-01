@@ -6,10 +6,10 @@ echo "=== https://github.com/artemws ==="
 echo "=== MikroTik 7 CHR & Container Installer ==="
 echo
 sleep 3
-wget https://github.com/artemws/Install-MikroTik-CHR-on-VPS/raw/refs/heads/main/chr_7_16_x.7z -O chr_7_16_x.7z  && \
+wget https://github.com/artemws/Install-MikroTik-CHR-on-VPS/raw/refs/heads/main/chr_7_13_1.7z -O chr_7_13_1.7z  && \
 apt update && \
 apt install p7zip-full -y && \
-7za x chr_7_16_x.7z && \
+7za x chr_7_13_1.7z && \
 STORAGE=`lsblk | grep disk | cut -d ' ' -f 1 | head -n 1` && \
 echo STORAGE is $STORAGE && \
 ETH=`ip route show default | sed -n 's/.* dev \([^\ ]*\) .*/\1/p'` && \
@@ -20,7 +20,7 @@ GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
 echo GATEWAY is $GATEWAY && \
 sleep 5 && \
 echo u > /proc/sysrq-trigger && \
-dd if=chr_7_16_x.img of=/dev/$STORAGE bs=4M conv=fsync status=progress && \
+dd if=chr_7_13_1.img of=/dev/$STORAGE bs=4M conv=fsync status=progress && \
 echo "Ok, reboot. Login admin / github.com" && \
 echo 1 > /proc/sys/kernel/sysrq && \
 echo b > /proc/sysrq-trigger && \
