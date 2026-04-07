@@ -21,5 +21,8 @@ echo GATEWAY is $GATEWAY && \
 sleep 5 && \
 dd if=chr-efi.img of=/dev/$STORAGE bs=4M oflag=sync && \
 echo "Ok, reboot" && \
-echo 1 > /proc/sys/kernel/sysrq && \
-echo b > /proc/sysrq-trigger && \
+sync \
+sleep 3 \
+partprobe /dev/$STORAGE || true \
+sleep 3 \
+reboot -f
