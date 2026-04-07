@@ -19,10 +19,7 @@ echo ADDRESS is $ADDRESS && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
 echo GATEWAY is $GATEWAY && \
 sleep 5 && \
-dd if=chr-efi.img of=/dev/$STORAGE bs=4M oflag=sync && \
-echo "Ok, reboot" && \
-sync \
-sleep 3 \
-partprobe /dev/$STORAGE || true \
-sleep 3 \
+dd if=chr.img of=/dev/$STORAGE bs=4M conv=fsync && \
+sgdisk -e /dev/sda && \
+sync && \
 reboot -f
